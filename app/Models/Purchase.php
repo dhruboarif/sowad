@@ -1,0 +1,26 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use App\Models\Package;
+use App\Models\User;
+
+class Purchase extends Model
+{
+    use HasFactory;
+      protected $table ="purchases";
+      public function user()
+    {
+
+         return $this->belongsTo(User::class, 'user_id');
+
+    }
+    public function package()
+    {
+
+         return $this->belongsTo(Package::class, 'package_id');
+
+    }
+}
